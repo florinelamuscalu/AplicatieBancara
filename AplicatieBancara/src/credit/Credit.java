@@ -6,7 +6,7 @@ public class Credit {
     private int venit;
     private long suma;
     private double Dobanda;
-    private int perioada;
+    private int perioada;  // nr zile
 
     public Credit(String Name, int venit, long suma, double Dobanda, int perioada) {
         this.Name = Name;
@@ -55,6 +55,12 @@ public class Credit {
     public void setPerioada(int perioada) {
         this.perioada = perioada;
     }
+
+    public double calculDobandaBruta(){
+        return ((suma * perioada * Dobanda) / 365)*100;
+    }
+
+
 
 
 }

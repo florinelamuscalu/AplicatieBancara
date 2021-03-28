@@ -3,7 +3,7 @@ package card;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Card {
+public class Card implements Comparable<Card> {
     protected String Name;
     protected long ID ;
     protected int Month_e;
@@ -69,7 +69,7 @@ public class Card {
         this.COD = COD;
     }
 
-    public void setComision(int comision) {
+    public void setComision(double comision) {
         this.comision = comision;
     }
 
@@ -110,5 +110,23 @@ public class Card {
            c.ID = 1 + rd.nextInt(999);
            return c;
     }
+
+    @Override
+    public int compareTo(Card o) {
+
+        //long compareID = o.getID();
+
+        // crescator
+        //return (int) (this.ID - compareID);
+
+        // descrescator
+
+       // return (int) (compareID - this.ID);
+
+        int cod = o.getCOD() ;
+    return cod - this.COD;
+
+    }
+
 
 }

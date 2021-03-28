@@ -16,4 +16,10 @@ public class CreditStudenti extends Credit {
     public void setTaxa(int taxa) {
         this.taxa = taxa;
     }
+
+    @Override
+
+    public double calculDobandaBruta(){
+        return (double) ((( getSuma() * getPerioada()) / 365)*100);
+    }
 }

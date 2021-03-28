@@ -4,25 +4,25 @@ package credit;
 
 
 public class CreditCasa extends Credit {
-    private int avns;
+    private int avans;
     private double costuri; // cat se scade
 
     // anans mic
     // dobanda robor la 3 luni + marja de maxim 2%
 
 
-    public CreditCasa(String Name, int venit, long suma, double Dobanda, int perioada, int avns, double costuri) {
+    public CreditCasa(String Name, int venit, long suma, double Dobanda, int perioada, int avans, double costuri) {
         super(Name, venit, suma, Dobanda, perioada);
-        this.avns = avns;
+        this.avans = avans;
         this.costuri = costuri;
     }
 
     public int getAvns() {
-        return avns;
+        return avans;
     }
 
     public void setAvns(int avns) {
-        this.avns = avns;
+        this.avans = avns;
     }
 
     public double getCosturi() {
@@ -31,5 +31,11 @@ public class CreditCasa extends Credit {
 
     public void setCosturi(double costuri) {
         this.costuri = costuri;
+    }
+
+    @Override
+
+    public double calculDobandaBruta(){
+        return (((getSuma() * getPerioada() * getDobanda()) - avans) / 365)*100;
     }
 }
