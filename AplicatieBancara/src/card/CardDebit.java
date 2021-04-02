@@ -2,6 +2,7 @@ package card;
 
 import serviciu.Serviciu;
 
+import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
 import java.util.Scanner;
 
 public class CardDebit extends Card implements Serviciu {
@@ -44,31 +45,17 @@ public class CardDebit extends Card implements Serviciu {
         System.out.println("Suma anula luata de pe card este: " + plata);
     }
 
+
     @Override
-    public void creareCard(){
-        Scanner dim = new Scanner(System.in);
-
-        System.out.println("Introdduceti nr de carduri");
-
-        int nrCarduri = dim.nextInt();
+    public void creareCard(Card obiect, int nrCarduri){
         CardDebit[] carduri = new CardDebit[nrCarduri];
-
-        Card c = new Card();
-
-        int sum;
-        Scanner input = new Scanner(System.in);
+        CardDebit debit = new CardDebit();
 
         for (CardDebit card : carduri) {
-            c.creareCard();
-            System.out.println("Introduceti suma de pe cardul de debit");
-
-            sum = input.nextInt();
-            card.setSuma(sum);
-
-            System.out.println("Introduceti numele asociatiei");
-            String nume = input.next();
+            obiect.creareCard(obiect, nrCarduri);
             card = new CardDebit();
-            card.setNumeAsociatie(nume);
+            card.setSuma(debit.getSuma());
+            card.setNumeAsociatie(debit.getNumeAsociatie());
 
         }
     }

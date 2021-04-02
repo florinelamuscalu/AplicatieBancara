@@ -3,8 +3,6 @@ package card;
 
 import serviciu.Serviciu;
 
-import java.util.Scanner;
-
 public class Card_Student extends Card implements Serviciu {
     private double commission_0;
 
@@ -19,7 +17,7 @@ public class Card_Student extends Card implements Serviciu {
 
     // return commission
     public double getComision_0() {
-        return commission_0;
+        return commission_0 = 0;
     }
 
     // new commission
@@ -37,28 +35,19 @@ public class Card_Student extends Card implements Serviciu {
         return commission_0;
     }
 
-
     @Override
-    public void creareCard(){
-        Scanner dim = new Scanner(System.in);
+    public void creareCard(Card obiect, int nrCarduri){
 
-        System.out.println("Introdduceti nr de carduri ale studentilor ");
-
-        int nrCarduri = dim.nextInt();
-
-        Card c= new Card();
+        Card_Student student = new Card_Student();
         Card_Student[] carduri = new Card_Student[nrCarduri];
 
-        double comision;
         for (Card_Student card : carduri) {
-            c.creareCard();
-            System.out.println("Comisionul pentru studenti este automat 0");
-
-            comision = 0;
+            obiect.creareCard(obiect, nrCarduri);
             card = new Card_Student();
-            card.setComision(comision);
+            card.setComision(student.getComision());
 
         }
     }
+//
 
 }

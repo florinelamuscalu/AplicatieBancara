@@ -6,7 +6,7 @@ import serviciu.Serviciu;
 import java.util.Scanner;
 
 // suma reprezinta sold-ul initial de pe card
-public class CardCredit extends Card implements Serviciu {
+public class CardCredit extends Card implements Serviciu  {
     private int suma; // banii pe care clientul trebuie sa ii adauge in fiecare luna
 
     // constructor default
@@ -41,27 +41,24 @@ public class CardCredit extends Card implements Serviciu {
         System.out.println("Bani luati in fiecare luna sunt: " + plata);
     }
 
-
     @Override
-    public void creareCard() {
-        Scanner dim = new Scanner(System.in);
-
-        System.out.println("Introdduceti nr de carduri de credit");
-
-        int nrCarduri = dim.nextInt();
+    public void creareCard(Card obiect, int nrCarduri) {
         CardCredit[] carduri = new CardCredit[nrCarduri];
 
-        Card c= new Card();
-
-        int sum;
+        CardCredit credit = new CardCredit();
         Scanner input = new Scanner(System.in);
 
         for (CardCredit card : carduri) {
-            c.creareCard();
+            obiect.creareCard(obiect, nrCarduri);
             System.out.println("Introduceti suma de pe cardul de credit");
-            sum = input.nextInt();
             card = new CardCredit();
-            card.setSuma(sum);
+            card.setSuma(credit.getSuma());
         }
     }
+
+//    @Override
+//    public void creareCard(CardDebit obiect, int nrCarduri) {
+//
+//    }
+//newName, cod, month, year,  commission_standard, nrCarduri
 }
