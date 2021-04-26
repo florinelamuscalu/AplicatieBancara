@@ -1,7 +1,6 @@
 package card;
 
 import java.util.Random;
-import java.util.Scanner;
 
 // aici pastez toate datele de pe un card
 public class Card implements Comparable<Card> {
@@ -15,8 +14,7 @@ public class Card implements Comparable<Card> {
 
 
     // constructorul default al clasei Card
-    public Card() {
-    }
+    public Card() {}
 
     // constructorul implicit al clasei Card
     public Card(String Name, long ID, int Month_e, int Year_e, int COD, double commission) {
@@ -29,7 +27,11 @@ public class Card implements Comparable<Card> {
         this.commission_standar = commission;
     }
 
-    // return name
+    /*
+    * return name
+    *
+    * @param name
+     */
     public String getName() {
         return name;
     }
@@ -100,7 +102,20 @@ public class Card implements Comparable<Card> {
         return commission_standar;
     }
 
-    // pentru intretineare contului
+    @Override
+    public String toString() {
+        return "Card{" +
+                "name='" + name + '\'' +
+                ", ID=" + ID +
+                ", month_e=" + month_e +
+                ", year_e=" + year_e +
+                ", COD=" + COD +
+                ", commission_standar=" + commission_standar +
+                ", comision=" + comision +
+                '}';
+    }
+
+    // pentru intretineare cardului
     public double comision_lunar(String type) {
         switch (type) {
             case "student" -> commission_standar = 0.5;
@@ -128,39 +143,6 @@ public class Card implements Comparable<Card> {
 
     }
 
-    // String newName, int cod, int month, int year, double commission, int nrCarduri
-    public void creareCard(Card obiect, int nrCarduri) {
 
-        Card[] carduri = new Card[nrCarduri];
-
-        int ID;
-        Scanner input = new Scanner(System.in);
-
-        for (int i = 0; i < carduri.length; ++i) {
-            System.out.println("Introduceti: numele detinatorului cardului, cod-ul cardului, " +
-                    "luna in care o sa expire, anul in care o sa exprire si comisionul standard"
-                    + "el o sa schimbe in functie de tipul cardului ");
-
-            carduri[i] = new Card();
-            carduri[i].setName(obiect.getName());
-
-
-            carduri[i].setCOD(obiect.getCOD());
-
-
-            carduri[i].setMonth_e(obiect.getMonth_e());
-
-
-            carduri[i].setYear_e(obiect.getYear_e());
-
-
-            carduri[i].setComision(obiect.getComision());
-
-            Random rd = new Random();
-            ID = 1 + rd.nextInt(999);
-            carduri[i].setID(ID);
-        }
-
-    }
 }
 

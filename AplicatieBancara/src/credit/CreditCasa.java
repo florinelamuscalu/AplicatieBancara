@@ -33,8 +33,13 @@ public class CreditCasa extends Credit {
         this.costuri = costuri;
     }
 
-    @Override
-    public double calculDobandaBruta(){
-        return (((getSuma() * getPerioada() * getDobanda()) - avans) / 365)*100;
+    // avans = 30 %
+    public double plata(){
+        return (suma - avans / 100) / perioada;
     }
+
+    public double recalculareDobanaLa3Luni(){
+        return dobanda + (dobanda * 2 )/100;
+    }
+
 }

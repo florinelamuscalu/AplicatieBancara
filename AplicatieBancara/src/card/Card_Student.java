@@ -35,19 +35,4 @@ public class Card_Student extends Card implements Serviciu {
         return commission_0;
     }
 
-    @Override
-    public void creareCard(Card obiect, int nrCarduri){
-
-        Card_Student student = new Card_Student();
-        Card_Student[] carduri = new Card_Student[nrCarduri];
-
-        for (Card_Student card : carduri) {
-            obiect.creareCard(obiect, nrCarduri);
-            card = new Card_Student();
-            card.setComision(student.getComision());
-
-        }
-    }
-//
-
 }

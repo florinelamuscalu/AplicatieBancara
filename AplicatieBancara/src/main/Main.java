@@ -2,14 +2,25 @@ package main;
 
 import card.*;
 
+import citire.CitireCont;
+import citire.CitireCredit;
+import citire.CitireTransfer;
+import citire.citireCard;
+import conturi.*;
+import credit.Credit;
+import singleton.SingletonPattern;
+
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException, IOException {
 
+/*
         // vector
         Card[] list = new Card[3];
         list[0] = new Card("Stanescu Maria", 0, 11, 2022, 805, 2.5);
@@ -26,11 +37,20 @@ public class Main {
         for (Card c : list){
             System.out.println("card" + ++i + " : " + c.getName() + " ID " + c.getID() + "cod: " + c.getCOD() + "comision: " + c.getComision());
         }
-        
-        Card carduri = new Card();
-        Scanner input = new Scanner(System.in);
-        int nrCarduri = input.nextInt();
-        carduri.creareCard(carduri, nrCarduri);
+
+
+//        String filename = null;
+//        public static void readFile(String filename) throw FileNotFoundException{
+//            try {
+//                File myFile = new File("src/fileCard.txt");
+//                Scanner scanner = new Scanner(myFile);
+//                System.out.println("S-a citit fisierul!");
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//                System.exit(0);
+//            }
+//        }
+          Card carduri = new Card();
 
         // comisionul la scoaterea banilor de pe card
         System.out.println("Introduceti banca de unde scoateti banii");
@@ -52,11 +72,7 @@ public class Main {
             System.out.println("numele studentilor: " + st.getName() + " ID card " + st.getID());
         }
 
-        // apelare creare card studenti
-
         Card_Student cst = new Card_Student();
-
-        cst.creareCard(carduri, nrCarduri);
 
         // comision lunar
         double com_lunar = cst.comision_lunar("student");
@@ -84,7 +100,6 @@ public class Main {
         // creare card
 
         CardCredit cr = new CardCredit();
-        cr.creareCard(carduri, nrCarduri);
 
        // banii luati cand platim/scoate bani de la alta banca
         System.out.println("Intorduceti numele banici de unde vreti sa platiti/ scoateti bani cu cardul de credit ");
@@ -110,7 +125,6 @@ public class Main {
         // creare card
 
         CardDebit d = new CardDebit();
-        d.creareCard(carduri, nrCarduri);
 
         // banii luati cand platim/scoate bani de la alta banca
         System.out.println("Intorduceti numele banici de unde vreti sa platiti/ scoateti bani cu cardul de debit ");
@@ -120,6 +134,33 @@ public class Main {
         // comision lunar
         com_lunar = cst.comision_lunar("debit");
         System.out.println("Comisionul lunar care se ia de pe cardul de debit este:" + com_lunar);
+*/
+
+        // Package credit
+
+        Credit[] credite = new Credit[3];
+        credite[0]= new Credit("Popescu Ion",2500,9800,18.64,56);
+        credite[1]= new Credit("Oancea Stefan",8000,15800,21.64,53);
+        credite[2]= new Credit("Tudea Mihai",6700,28600,21.64,98);
+
+
+        // CSV
+
+//        CSV readFile = new CSV();
+//        readFile.CreateCSVcard();
+
+        // CSV cu Generic Singleton
+        citireCard  ct = new citireCard();
+        ct.CitireCard("src\\fisiere\\Card.CSV");
+
+        CitireCont cc = new CitireCont();
+        cc.CitireCont("src\\fisiere\\Conturi.CSV");
+
+        CitireCredit ccr =  new CitireCredit();
+        ccr.CitireCredit("src\\fisiere\\Credit.CSV");
+
+        CitireTransfer ctr = new CitireTransfer();
+        ctr.CitireTransfer("src\\fisiere\\Transfer.CSV");
 
 
 

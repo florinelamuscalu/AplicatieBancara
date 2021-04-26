@@ -17,9 +17,14 @@ public class CreditStudenti extends Credit {
         this.taxa = taxa;
     }
 
+    // calcul credit studenti in genarl
     @Override
+    public double CalculCredit(){
+        return ((((venit - (40 * venit)/ 100)) /2)* perioada) - (((((venit - (40 * venit)/ 100) /2)) * perioada) * ((12.38 + dobanda)/100));
+    }
 
-    public double calculDobandaBruta(){
-        return (double) ((( getSuma() * getPerioada()) / 365)*100);
+    // calcul credit studenti pentru achitarea taxei
+    public double CalculCreditTaxa(){
+        return taxa + (taxa * (12.38 + dobanda)/100) ;
     }
 }

@@ -1,8 +1,6 @@
 package card;
 
 import serviciu.Serviciu;
-
-import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
 import java.util.Scanner;
 
 public class CardDebit extends Card implements Serviciu {
@@ -46,17 +44,4 @@ public class CardDebit extends Card implements Serviciu {
     }
 
 
-    @Override
-    public void creareCard(Card obiect, int nrCarduri){
-        CardDebit[] carduri = new CardDebit[nrCarduri];
-        CardDebit debit = new CardDebit();
-
-        for (CardDebit card : carduri) {
-            obiect.creareCard(obiect, nrCarduri);
-            card = new CardDebit();
-            card.setSuma(debit.getSuma());
-            card.setNumeAsociatie(debit.getNumeAsociatie());
-
-        }
-    }
 }

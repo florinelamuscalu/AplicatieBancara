@@ -1,6 +1,8 @@
 package serviciu;
 
+import conturi.Conturi;
+
 public interface ServiciuConturi {
 
-    public void DeschidereInchidere(int cont);
+   // public void DeschidereInchidereCont(Conturi cont, int nrConturi);
 }

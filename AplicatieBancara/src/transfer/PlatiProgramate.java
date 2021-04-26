@@ -27,4 +27,8 @@ public class PlatiProgramate extends Transfer {
         Month_p = month_p;
     }
 
+    public double commisiion (String NameBanck){
+        return (NameBanck == "BF") ? 3.5 : 8.9;
+    }
+
 }

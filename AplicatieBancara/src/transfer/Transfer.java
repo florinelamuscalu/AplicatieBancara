@@ -3,6 +3,8 @@ package transfer;
 public class Transfer {
     protected int sumaTrans;
 
+    public Transfer(){}
+
     public Transfer(int sumaTrans) {
         this.sumaTrans = sumaTrans;
     }

@@ -41,24 +41,4 @@ public class CardCredit extends Card implements Serviciu  {
         System.out.println("Bani luati in fiecare luna sunt: " + plata);
     }
 
-    @Override
-    public void creareCard(Card obiect, int nrCarduri) {
-        CardCredit[] carduri = new CardCredit[nrCarduri];
-
-        CardCredit credit = new CardCredit();
-        Scanner input = new Scanner(System.in);
-
-        for (CardCredit card : carduri) {
-            obiect.creareCard(obiect, nrCarduri);
-            System.out.println("Introduceti suma de pe cardul de credit");
-            card = new CardCredit();
-            card.setSuma(credit.getSuma());
-        }
-    }
-
-//    @Override
-//    public void creareCard(CardDebit obiect, int nrCarduri) {
-//
-//    }
-//newName, cod, month, year,  commission_standard, nrCarduri
 }
